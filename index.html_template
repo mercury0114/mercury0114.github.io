@@ -5,10 +5,7 @@
     <title></title>
 </head>
 <body>
-    <div class="menu">
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
-</div>
+    ${MENU}
     <h1>Young and Broke Abroad</h1>
     <h3>Are you a young foreigner who considers emigrating to
     another country? Are you afraid you might have financial
