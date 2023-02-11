@@ -1,5 +1,9 @@
+h1 {
+    color: green;
+}
+
 .menu {
-    background-color: #333;
+    background-color: blue;
 }
 
 .menu a {
@@ -13,7 +17,6 @@
     color: blue;
 }
 
-.menu a:active {
-    background-color: #04AA6D;
-    color: white;
+.text {
+    font-size: 20px;
 }
