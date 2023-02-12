@@ -10,7 +10,8 @@
 
     <h2>CEO - [NAME SURNAME]</h2>
 
-    <div class="text">A lady who has plenty of ideas. Some ideas are more emotional than rational, but don't tell her that!</div>
+    <div class="text">An attractive lady who has plenty of ideas. Some ideas are more emotional than rational, but don't tell her that!</div>
+    <div class="text"><text style="color:blue">Contact email:</text> some_email_that_she_thinks_will_be_used@gmail.com</div>
 
     <h2>CTO</h2>
 
