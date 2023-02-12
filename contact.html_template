@@ -6,7 +6,7 @@
 </head>
 <body>
     ${MENU}
-    <h1>Our amazing team:</h1>
+    <h1>Our amazing team</h1>
 
     <h2>CEO - [NAME SURNAME]</h2>
 
