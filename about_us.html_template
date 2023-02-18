@@ -6,5 +6,6 @@
 </head>
 <body>
     ${MENU}
+    <div class="text"></div>
 </body>
 </html>
