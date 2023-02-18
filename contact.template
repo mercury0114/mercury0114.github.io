@@ -5,10 +5,7 @@
     <title></title>
 </head>
 <body>
-    <div class="menu">
-        <a href="index.html">Home</a> <a href="about_us.html">About
-        Us</a> <a href="contact.html">Contact</a>
-    </div>
+    ${MENU}	
     <h1>Our amazing team:</h1>
     <h2>CEO - [NAME SURNAME]</h2>
     <div class="text">

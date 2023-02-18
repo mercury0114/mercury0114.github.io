@@ -5,10 +5,7 @@
     <title></title>
 </head>
 <body>
-    <div class="menu">
-        <a href="index.html">Home</a> <a href="about_us.html">About
-        Us</a> <a href="contact.html">Contact</a>
-    </div>
+    ${MENU}
     <h1>Young and Broke Abroad</h1><img src="image.jpg" alt=
     "Home Page Image" width="700">
     <div class="text">
