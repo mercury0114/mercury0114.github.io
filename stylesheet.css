@@ -2,6 +2,27 @@ h1 {
   color: green;
 }
 
+h2 {
+  margin: 0px;
+}
+
+li {
+  padding: 3px 0px;
+}
+
+.col {
+  float:left;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  border:1px solid black;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .menu {
   background-color: blue;
   padding: 5px 0px;
@@ -22,12 +43,4 @@ h1 {
 .text {
   font-size: 20px;
   padding: 6px 0px;
-}
-
-h2 {
-  margin: 0px;
-}
-
-li {
-  padding: 3px 0px;
 }
