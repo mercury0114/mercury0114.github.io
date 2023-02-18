@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-    ${MENU} <img src="image.jpg" alt="Home Page Image" width="700">
+    ${MENU} <img src="images/home_image.jpg" alt="Home Page Image" width="700">
     <div class="text">
         Are you dreaming to study in a university, but fear being
         rejected? We will help to get you there!

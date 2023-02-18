@@ -8,8 +8,8 @@
     ${MENU}
     <div class="row">
         <div class="col">
-            <img src="Vitalina.jpg" alt="Vitalina Image" width=
-            "400">
+            <img src="images/vitalina.jpg" alt="Vitalina Image"
+            width="400">
             <div class="text">
                 Cofounder Vitalina Kovalenko
             </div>
@@ -27,7 +27,8 @@
             </div>
         </div>
         <div class="col">
-            <img src="Dumbass.jpg" alt="Dumbass Image" width="400">
+            <img src="images/dumbass.jpg" alt="Dumbass Image"
+            width="400">
             <div class="text">
                 Some other dumbass
             </div>
