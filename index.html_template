@@ -11,7 +11,7 @@
         rejected? We will help to get you there!
     </div>
     <h1>Our Services</h1>
-    <h2>We offer the following services:</h2>
+    <h2>We offer the following services</h2>
     <div class="text">
         <ul>
             <li>Designing an individual strategy plan of admission
@@ -25,6 +25,17 @@
             <li>Drafting personal statement, letter of reco</li>
             <li>Preparing for admission interviews</li>
             <li>Preparing for IELTS/TOEFL exams</li>
+        </ul>
+    </div>
+    <h2>Free Initial Consultation</h2>
+    <div class="text">
+        <ul>
+            Before providing any service, we conduct a free
+            consultation during which we discuss your educational
+            background, professional experience and future goals,
+            explain how we can help you and answer your questions.
+            It is important for us to have an opportunity to get to
+            know each other better.
         </ul>
     </div>
     <h2>We cannot help with</h2>
