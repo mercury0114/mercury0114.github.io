@@ -5,18 +5,12 @@
     <title></title>
 </head>
 <body>
-    ${MENU}	
-    <h1>Our amazing team:</h1>
-    <h2>CEO - [NAME SURNAME]</h2>
+    ${MENU}
     <div class="text">
-        A lady who has plenty of ideas. Some ideas are more
-        emotional than rational, but don't tell her that!
-    </div>
-    <h2>CTO</h2>
-    <div class="text">
-        An incredibly gifted programmer, who always delivers
-        outstanding software in time. The CTO prefers his identity
-        to be hidden.
+        Any questions? We are happy to hear from you. Let's get in
+        touch at<br>
+        <br>
+        <b style="color:blue">contact.getyouthere@gmail.com</b>
     </div>
 </body>
 </html>
