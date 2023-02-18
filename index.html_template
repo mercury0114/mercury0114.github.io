@@ -5,13 +5,35 @@
     <title></title>
 </head>
 <body>
-    ${MENU}
-    <h1>Young and Broke Abroad</h1><img src="image.jpg" alt=
-    "Home Page Image" width="700">
+    ${MENU} <img src="image.jpg" alt="Home Page Image" width="700">
     <div class="text">
-        Are you a young foreigner who considers emigrating to
-        another country? Are you worried you might have financial
-        difficulties? We are here to help you!
+        Are you dreaming to study in a university, but fear being
+        rejected? We will help to get you there!
+    </div>
+    <h1>Our Services</h1>
+    <h2>We offer the following services:</h2>
+    <div class="text">
+        <ul>
+            <li>Designing an individual strategy plan of admission
+            to university of your choce</li>
+            <li>Assessing chances of admission to a university of
+            your choice</li>
+            <li>Searching for study programs, scholarships and
+            grants</li>
+            <li>Reviewing and correcting personal statement, letter
+            of recommendation, CV</li>
+            <li>Drafting personal statement, letter of reco</li>
+            <li>Preparing for admission interviews</li>
+            <li>Preparing for IELTS/TOEFL exams</li>
+        </ul>
+    </div>
+    <h2>We cannot help with</h2>
+    <div class="text">
+        <ul>
+            <li>Pass exams on your behalf</li>
+            <li>Motivate you if you are not motivated yourself</li>
+            <li>Prepare for IELTS/TOEFL exams within 5 days</li>
+        </ul>
     </div>
 </body>
 </html>
