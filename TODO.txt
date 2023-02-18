@@ -1,0 +1,20 @@
+- Add dual-language support, English and Russian:
+	The translation for every piece of text should be generated offline,
+	before uploading the website update to github.
+
+	Use Javascript to switch from one language to another:
+		-runs in a browser, no need to request server reload the page
+		 when switching the language
+		-most likely will be supported by many browsers
+		DISADVANTAGE: ugly Java script code
+
+	If javascript is disabled in a Browser, load English by default.
+
+	To minimise work required translate the text into Russian:
+		-Store every piece of English text in a file;
+		-If corresponding Russian file is not present, make
+			Google Translate generate it,
+			when executing ./generate_html.sh script
+	        -If corresponding Russian file is present (potentially manually
+			edited), Google Translate skips generating it.
+		-No HTML tags should be in the text files.
