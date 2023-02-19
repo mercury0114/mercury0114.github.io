@@ -9,7 +9,7 @@
 
 <body>
     ${MENU} <iframe width="700" height="500" src=
-    "https://www.youtube.com/watch?v=jfTq4ZkltCM"></iframe>
+    "https://www.youtube.com/embed/jfTq4ZkltCM"></iframe>
 
     <div class="text">
         <h4>Are you dreaming to study in a university, but fear
