@@ -1,5 +1,6 @@
 MENU=$(cat menu.misc)
-export MENU
+HEAD=$(cat head.misc)
+export MENU HEAD
 cat index.html_template | envsubst >index.html
 ../../styleguide/html/format_html.sh index.html
 cat contact.html_template | envsubst >contact.html

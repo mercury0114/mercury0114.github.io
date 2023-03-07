@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    ${MENU} <iframe width="700" height="500" src=
+    ${MENU} <iframe class="center_image" height="500" src=
     "https://www.youtube.com/embed/jfTq4ZkltCM"></iframe>
 
     <div class="text">

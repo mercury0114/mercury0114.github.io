@@ -1,83 +1,106 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+
     <title></title>
 </head>
+
 <body>
     ${MENU}
+
     <div class="row">
         <div class="col">
-            <img src="images/vitalina.jpg" alt="Vitalina Image"
-            width="400">
+            <img src="images/vitalina.jpg" width="100%" alt=
+            "Vitalina Image">
+
             <div class="text">
                 Cofounder Vitalina Kovalenko
             </div>
+
             <div class="text">
                 Master of Laws, Humanities University, 2020
             </div>
+
             <div class="text">
                 Geneva Graduate Institute Scholar
             </div>
+
             <div class="text">
                 Total scholarship value: CHF 25000
             </div>
+
             <div class="text">
                 TOEFL score: 112/120
             </div>
         </div>
+
         <div class="col">
-            <img src="images/marharyta.jpg" alt="Marharyta"
-            width="400">
+            <img src="images/marharyta.jpg" alt="Marharyta" width=
+            "100%">
+
             <div class="text">
                 To be announced
             </div>
+
             <div class="text">
                 Bachelor of Law
             </div>
+
             <div class="text">
                 To be announced
             </div>
+
             <div class="text">
                 Total sholarship value: ???
             </div>
+
             <div class="text">
                 IELTS Score: ???
             </div>
         </div>
     </div>
+
     <h1>Our Story</h1>
+
     <div class="text">
         Our story began in 2020 when we started applying for
         studies in Switzerland and United Kingdom. We felt scared,
         doubtful, uncertain. There were times when one of us wanted
         to give up.
     </div>
+
     <div class="text">
         In 2021, after months of nerve-racking waiting, both of us
-        received rejection emails. We felt low. Having each other’s
+        received rejection emails. We felt low. Having each other's
         back helped us go high.
     </div>
+
     <div class="text">
         We had regular check-in calls making sure that each of us
         is in a good mental and emotional state. We spent countless
-        hours reading and correcting each other’s documents,
+        hours reading and correcting each other's documents,
         brainstorming, and kept doing the same all over again. Most
         importantly, we truly believed in each other, more than
         each of us believed in herself.
     </div>
+
     <div class="text">
         Hard work paid off, and we achieved what we aimed for. In
         2022, Marharyta won a Chevening scholarship, while Vitalina
         got accepted to Geneva Graduate Institute with a full
         tuition fee waiver worth of CHF 25.000.
     </div>
+
     <div class="text">
         We know first hand how emotionally and mentally challenging
         the university application process is. Let us lend you a
         helping hand and get you there!
     </div>
+
     <h1>Our Mission</h1>
+
     <div class="text">
         <b>Breaking down barriers and stereotypes.</b> Yes, you can
         secure admission without being in top 1% of the class. No,
@@ -86,6 +109,7 @@
         for well-off.<br>
         <br>
     </div>
+
     <div class="text">
         <b>Focusing on uniqueness of each applicant.</b> We believe
         that the key for admission to any university is the ability
@@ -95,6 +119,7 @@
         it to admission committee.<br>
         <br>
     </div>
+
     <div class="text">
         <b>Saving your time.</b> Searching for programs,
         scholarships, grants takes time. Writing a successful
@@ -106,6 +131,7 @@
         your personal story.<br>
         <br>
     </div>
+
     <div class="text">
         <b>Planning ahead.</b> We believing that securing admission
         is only the first step in your study journey. Every
@@ -118,7 +144,9 @@
         you do not have to.<br>
         <br>
     </div>
+
     <h1>Our Values</h1>
+
     <div class="text">
         <b>Inclusion:</b> we stand for educational opportunities
         for all. In memory of our first client with vision
@@ -126,6 +154,7 @@
         with disabilities.<br>
         <br>
     </div>
+
     <div class="text">
         <b>Professionalism:</b> we tailor our services towards the
         needs of each individual client and the requirements of a
@@ -133,12 +162,13 @@
         copycating.<br>
         <br>
     </div>
+
     <div class="text">
         <b>Partnership:</b> our project is based on a simple idea
         that it is easier to walk the walk together, rather than
-        alone. That requires partnership.For us, it is about having
-        a reliable and trustworthy connection, which we aspire to
-        build with each of our client.<br>
+        alone. That requires partnership. For us, it is about
+        having a reliable and trustworthy connection, which we
+        aspire to build with each of our client.<br>
         <br>
     </div>
 </body>
