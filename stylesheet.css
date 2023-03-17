@@ -37,7 +37,6 @@ li {
   float:left;
   padding: 0px 1px;
   margin-bottom: 20px;
-  border:1px solid black;
 }
 
 .row::after {

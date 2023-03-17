@@ -9,5 +9,7 @@ cat about_us.html_template | envsubst >about_us.html
 ../../styleguide/html/format_html.sh about_us.html
 cat services.html_template | envsubst >services.html
 ../../styleguide/html/format_html.sh services.html
+cat mission.html_template | envsubst >mission.html
+../../styleguide/html/format_html.sh mission.html
 mv *.html ../
 
