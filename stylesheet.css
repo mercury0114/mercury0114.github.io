@@ -36,7 +36,7 @@ li {
   width: 49%;
   float:left;
   padding: 0px 1px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .row::after {
@@ -54,7 +54,7 @@ li {
 
 .menu a {
   color: #f2f2f2;
-  font-size: 30px;
+  font-size: 35px;
   padding: 14px 16px;
 }
 
