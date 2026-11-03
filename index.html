@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+    "width=device-width, initial-scale=1.0">
+    <title>Number Submission</title>
+    <!-- Links to your separate stylesheet -->
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="card">
+        <form id="numberForm" name="numberForm">
+            <div class="input-group">
+                <label for="numberInput">Type a number:</label>
+                <input type="number" id="numberInput" placeholder=
+                "e.g., 42" required="">
+            </div><button type="submit">Submit</button>
+        </form><!-- Hidden Part -->
+        <div id="hiddenContent" class="hidden-section">
+            <h3>🎉 Section Revealed!</h3>
+            <p>You submitted the number: <strong id=
+            "submittedNumber"></strong></p>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('numberForm');
+        const hiddenContent = document.getElementById('hiddenContent');
+        const submittedNumberSpan = document.getElementById('submittedNumber');
+
+        form.addEventListener('submit', function(event) {
+            // Prevent page refresh on form submit
+            event.preventDefault();
+
+            // Get value from input
+            const value = document.getElementById('numberInput').value;
+
+            // Display submitted value in the hidden section
+            submittedNumberSpan.textContent = value;
+
+            // Show the hidden content
+            hiddenContent.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
