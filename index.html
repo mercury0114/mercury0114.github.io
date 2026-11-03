@@ -1,46 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content=
-    "width=device-width, initial-scale=1.0">
-    <title>Number Submission</title>
-    <!-- Links to your separate stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Check</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+
     <div class="card">
-        <form id="numberForm" name="numberForm">
+        <form id="checkForm">
             <div class="input-group">
-                <label for="numberInput">Type a number:</label>
-                <input type="number" id="numberInput" placeholder=
-                "e.g., 42" required="">
-            </div><button type="submit">Submit</button>
-        </form><!-- Hidden Part -->
-        <div id="hiddenContent" class="hidden-section">
-            <h3>🎉 Section Revealed!</h3>
-            <p>You submitted the number: <strong id=
-            "submittedNumber"></strong></p>
+                <label for="textInput">Which country is Marius from?</label>
+                <input type="text" id="textInput" placeholder="type just the country name" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Result Section -->
+        <div id="resultContent" class="hidden-section">
+            <p id="resultMessage"></p>
         </div>
     </div>
-    <script>
-        const form = document.getElementById('numberForm');
-        const hiddenContent = document.getElementById('hiddenContent');
-        const submittedNumberSpan = document.getElementById('submittedNumber');
 
-        form.addEventListener('submit', function(event) {
-            // Prevent page refresh on form submit
+    <script>
+        const form = document.getElementById('checkForm');
+        const resultContent = document.getElementById('resultContent');
+        const resultMessage = document.getElementById('resultMessage');
+
+        form.addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // Get value from input
-            const value = document.getElementById('numberInput').value;
+            const userInput = document.getElementById('textInput').value.trim().toLowerCase();
 
-            // Display submitted value in the hidden section
-            submittedNumberSpan.textContent = value;
+            // Compare the user's hashed input against the target hash
+            if (userInput == "lithuania") {
+                resultMessage.textContent = "Marius admires Aleksandra";
+                resultContent.style.backgroundColor = "#e6f4ea";
+                resultContent.style.borderColor = "#34a853";
+                resultContent.style.color = "#137333";
+            } else {
+                resultMessage.textContent = "Try agan";
+                resultContent.style.backgroundColor = "#fce8e6";
+                resultContent.style.borderColor = "#ea4335";
+                resultContent.style.color = "#c5221f";
+            }
 
-            // Show the hidden content
-            hiddenContent.style.display = 'block';
+            resultContent.style.display = 'block';
         });
     </script>
+
 </body>
 </html>
