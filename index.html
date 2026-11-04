@@ -8,36 +8,69 @@
 </head>
 <body>
 
+    <main class="page_wrapper">
     <div class="question_window">
-        <form id="checkForm">
-            <div class="question_and_answer_box">
-                <label for="textInput">Which country is Marius from?</label>
-                <input type="text" id="textInput"
-			placeholder="type just the country name">
-            </div>
+        <div class="question_box">
+            <p> Find the smallest 2-digit number x satisfying:<br>
+                x<sup>2</sup> + 5x + 6 == 0 (mod 13)
+            </p>
+        </div>
+
+        <form id="form1">
+            <input type="text" id="input1" class="input_box" placeholder="type smallest x here" required>
             <button type="submit">Submit</button>
         </form>
-
-        <div id="resultContent" class="hidden-section">
-            <p id="resultMessage"></p>
-        </div>
+        <p id="message1" style="margin-top: 10px;"></p>
     </div>
 
+    <div class="question_window">
+        <div class="question_box">
+            <p> Find the largest 2-digit number x satisfying:<br>
+                x<sup>2</sup> + 5x + 6 == 0 (mod 13)
+            </p>
+        </div>
+
+        <form id="form2">
+            <input type="text" id="input2" class="input_box" placeholder="type largest x here" required>
+            <button type="submit">Submit</button>
+        </form>
+	<p id="message2" style="margin-top: 10px;"></p>
+    </div>
+
+    <div id="imageContainer2" style="display: none; margin-top: 10px;">
+        <img src="largest_x_success_image.jpg" alt="Success Image" style="max-width: 100%; height: auto;">
+    </div>
+    </main>
+
     <script>
-        const form = document.getElementById('checkForm');
-        const resultContent = document.getElementById('resultContent');
-        const resultMessage = document.getElementById('resultMessage');
+        // First form logic (Smallest x)
+        const form1 = document.getElementById('form1');
+        const input1 = document.getElementById('input1');
+        const message1 = document.getElementById('message1');
 
-        form.addEventListener('submit', function(event) {
+        form1.addEventListener('submit', function(event) {
             event.preventDefault();
-
-            const userInput = document.getElementById('textInput').value;
-            if (userInput.trim().toLowerCase() == "lithuania") {
-                resultMessage.textContent = "Marius admires Aleksandra";
+            if (input1.value.trim() === "10") {
+                message1.textContent = "Marius wants to kiss hot Aleksandra";
             } else {
-                resultMessage.textContent = "Try again";
+                message1.textContent = "Try again";
             }
-            resultContent.style.display = 'block';
+        });
+
+        // Second form logic (Largest x)
+        const form2 = document.getElementById('form2');
+        const input2 = document.getElementById('input2');
+        const message2 = document.getElementById('message2');
+
+        form2.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (input2.value.trim() === "89") {
+                message2.textContent = "";
+		imageContainer2.style.display = 'block';
+            } else {
+                message2.textContent = "Try again";
+		imageContaiiner2.style.display = 'none';
+            }
         });
     </script>
 

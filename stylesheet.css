@@ -1,17 +1,21 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     color: #333; /* Text color by default, to not rely on browser's defaults. */
 }
 
+.question_box {
+	border: 1px solid black;
+	padding: 8px;
+	margin-bottom: 20px;
+}
+
 .question_window {
     background: #ffffff;
     padding: 32px;
-    width: 320px; 
     box-sizing: border-box; /* makes question window width be 320px with padding*/
     background: #f4f6f8;
 }
@@ -21,4 +25,12 @@ body {
     flex-direction: column;
     gap: 12px; /* vertical space between question and answer box */
     margin-bottom: 20px; /* vertical space after the answer box */
+}
+
+.page_wrapper {
+	width: 100%;
+	max-width: 440px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
