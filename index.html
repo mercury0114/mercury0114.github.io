@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country Check</title>
+    <title>Secret Page</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
-    <div class="card">
+    <div class="question_window">
         <form id="checkForm">
-            <div class="input-group">
+            <div class="question_and_answer_box">
                 <label for="textInput">Which country is Marius from?</label>
-                <input type="text" id="textInput" placeholder="type just the country name" required>
+                <input type="text" id="textInput"
+			placeholder="type just the country name">
             </div>
             <button type="submit">Submit</button>
         </form>
 
-        <!-- Result Section -->
         <div id="resultContent" class="hidden-section">
             <p id="resultMessage"></p>
         </div>
@@ -28,24 +28,15 @@
         const resultContent = document.getElementById('resultContent');
         const resultMessage = document.getElementById('resultMessage');
 
-        form.addEventListener('submit', async function(event) {
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const userInput = document.getElementById('textInput').value.trim().toLowerCase();
-
-            // Compare the user's hashed input against the target hash
-            if (userInput == "lithuania") {
+            const userInput = document.getElementById('textInput').value;
+            if (userInput.trim().toLowerCase() == "lithuania") {
                 resultMessage.textContent = "Marius admires Aleksandra";
-                resultContent.style.backgroundColor = "#e6f4ea";
-                resultContent.style.borderColor = "#34a853";
-                resultContent.style.color = "#137333";
             } else {
-                resultMessage.textContent = "Try agan";
-                resultContent.style.backgroundColor = "#fce8e6";
-                resultContent.style.borderColor = "#ea4335";
-                resultContent.style.color = "#c5221f";
+                resultMessage.textContent = "Try again";
             }
-
             resultContent.style.display = 'block';
         });
     </script>
