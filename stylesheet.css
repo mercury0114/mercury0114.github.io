@@ -29,8 +29,8 @@ body {
 
 .page_wrapper {
 	width: 100%;
-	max-width: 440px;
+	max-width: 370px;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 10px;
 }
