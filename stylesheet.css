@@ -26,3 +26,15 @@ body {
 	flex-direction: column;
 	gap: 10px;
 }
+
+.menu_bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 8px;
+}
+
+.active {
+	background: #333;
+	color: #fff;
+}
