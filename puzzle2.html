@@ -18,21 +18,88 @@
         </div>
         <div class="question_window">
             <div class="question_box">
-                <p>Click the teleport button to teleport to Marius</p>
-            </div><button type="button" id="teleportButton">Teleport</button>
+                <p>Click a teleport button (ordered chronologically from earliest to latest) to teleport to Marius</p>
+            </div>
+            <div class="teleport_list">
+                <div class="teleport_row">
+                    <button type="button" id="teleport1">Teleport 1</button> <input type="text" id="specialKey1" placeholder="extra key">
+                </div>
+                <div class="teleport_row">
+                    <button type="button" id="teleport2">Teleport 2</button>
+                </div>
+                <div class="teleport_row">
+                    <button type="button" id="teleport3">Teleport 3</button>
+                </div>
+                <div class="teleport_row">
+                    <button type="button" id="teleport4">Teleport 4</button>
+                </div>
+                <div class="teleport_row">
+                    <button type="button" id="teleport5">Teleport 5</button>
+                </div>
+                <div class="teleport_row">
+                    <button type="button" id="teleport6">Teleport 6</button>
+                </div>
+            </div>
             <p id="teleportTime" style="margin-top: 10px;"></p>
+            <p id="teleportMessage"></p>
         </div>
+        <div id="teleportResult" class="question_window" style="display: none;"></div>
     </main>
     <script>
-        const teleportButton = document.getElementById("teleportButton");
-        const teleportTime = document.getElementById("teleportTime");
+        const teleport5Text = `Marius is on the Zawirowania floor, lifted in a table pose, when suddenly he feels an additional weight on his chest. Before realizing what happened, he barely manages to lie back on the mat, almost breaking his wrists. Marius is breathing heavily and is completely soaked in sweat, when he suddenly smells something nice and familiar. Only then does he begin to realize: the ballerina Aleksandra has teleported! It has worked, and she is now lying on top of him. Before the moment disappears, Marius gives Aleksandra a big kiss and a strong hug, despite all the other students in the class suspiciously watching what happened. And then Aleksandra teleports again and disappears.
 
-        teleportButton.addEventListener("click", function() {
+    Marius will now have to explain to Elwira why her class was interrupted and what he is doing to Elwira's best student Aleksandra, but no worries, the kiss was worth any subsequent trouble.`;
+
+        const windows = [
+            { portal: 1, buttonId: "teleport1", time: "00:52", text: null },
+            { portal: 2, buttonId: "teleport2", time: "08:48", text: null },
+            { portal: 3, buttonId: "teleport3", time: "12:44", text: null },
+            { portal: 4, buttonId: "teleport4", time: "16:36", text: null },
+            { portal: 5, buttonId: "teleport5", time: "18:28", text: teleport5Text },
+            { portal: 6, buttonId: "teleport6", time: "20:12", text: null },
+        ];
+
+        const teleportTime = document.getElementById("teleportTime");
+        const teleportMessage = document.getElementById("teleportMessage");
+        const teleportResult = document.getElementById("teleportResult");
+
+        function getCurrentTimeHHMM() {
             const now = new Date();
             const hh = String(now.getHours()).padStart(2, "0");
             const mm = String(now.getMinutes()).padStart(2, "0");
-            teleportTime.textContent = `Ola attempted to teleport at time: ${hh}:${mm}`;
-        });
+            return `${hh}:${mm}`;
+        }
+
+        function renderResultText(text) {
+            teleportResult.replaceChildren();
+            for (const paragraph of text.split("\n\n")) {
+                const p = document.createElement("p");
+                p.textContent = paragraph;
+                teleportResult.appendChild(p);
+            }
+            teleportResult.style.display = "block";
+        }
+
+        for (const win of windows) {
+            const button = document.getElementById(win.buttonId);
+            button.addEventListener("click", function() {
+                const currentTime = getCurrentTimeHHMM();
+                teleportTime.textContent = `Ola attempted to teleport through portal ${win.portal} at time: ${currentTime}`;
+
+                if (!win.text) {
+                    teleportMessage.textContent = `Portal ${win.portal} doesn't work yet.`;
+                    teleportResult.replaceChildren();
+                    teleportResult.style.display = "none";
+                } else if (currentTime !== win.time) {
+                    teleportMessage.textContent = "Not quite the right moment yet — Marius for a moment sensed the presence of a strong ballerina next to him, but the sensation quickly evaporated.";
+                    teleportResult.replaceChildren();
+                    teleportResult.style.display = "none";
+                } else {
+                    teleportMessage.textContent = "Teleportation successful!";
+                    renderResultText(win.text);
+                }
+            });
+        }
     </script>
 </body>
 </html>
