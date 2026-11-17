@@ -11,8 +11,22 @@
     <script src="menu.js"></script>
     <main class="page_wrapper">
         <div class="question_window">
-            <p>Puzzle 2 coming soon.</p>
+            <div class="question_box">
+                <p>Click the teleport button to teleport to Marius</p>
+            </div><button type="button" id="teleportButton">Teleport</button>
+            <p id="teleportTime" style="margin-top: 10px;"></p>
         </div>
     </main>
+    <script>
+        const teleportButton = document.getElementById("teleportButton");
+        const teleportTime = document.getElementById("teleportTime");
+
+        teleportButton.addEventListener("click", function() {
+            const now = new Date();
+            const hh = String(now.getHours()).padStart(2, "0");
+            const mm = String(now.getMinutes()).padStart(2, "0");
+            teleportTime.textContent = `Ola attempted to teleport at time: ${hh}:${mm}`;
+        });
+    </script>
 </body>
 </html>
