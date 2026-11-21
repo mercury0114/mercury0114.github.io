@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Page - puzzle1</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="encryption.js"></script>
 </head>
 <body>
     <nav id="menu" class="menu_bar"></nav>
@@ -30,7 +31,9 @@
             </form>
             <p id="message2" style="margin-top: 10px;"></p>
         </div>
-        <div id="imageContainer" style="margin-top: 10px;"><img id="successImage" alt="Success Image" style="max-width: 100%; height: auto;"></div>
+        <div id="imageContainer" style="margin-top: 10px;">
+            <canvas id="successImage" width="348" height="464" style="max-width: 100%; height: auto;"></canvas>
+        </div>
     </main>
     <script>
         // First form logic (Smallest x)
@@ -60,55 +63,21 @@
         // When user submits a number, recompute image using number as key and rerender
         form2.addEventListener("submit", async function(event) {
             event.preventDefault();
-            const decryptedBytes = await decrypt(encryptedBytes, input2.valueAsNumber);
+            const decryptedBytes = await Encryption.decrypt(encryptedBytes, input2.valueAsNumber);
             renderImage(decryptedBytes);
         });
 
 
         // Helper functions and encrypted data
         function renderImage(bytes) {
-            const width = 348;
-            const height = 464;
-            const canvas = document.createElement("canvas");
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext("2d");
-            const imageData = ctx.createImageData(width, height);
+            const ctx = successImage.getContext("2d");
+            const imageData = ctx.createImageData(successImage.width, successImage.height);
             const data = imageData.data;
 
             for (let i = 0; i < data.length; i++) {
                 data[i] = bytes[i];
             }
             ctx.putImageData(imageData, 0, 0);
-            successImage.src = canvas.toDataURL();
-        }
-
-        async function decrypt(encryptedBytes, key) {
-            const salt = encryptedBytes.slice(0, 16);
-            const counter = encryptedBytes.slice(16, 32);
-            const ciphertext = encryptedBytes.slice(32);
-
-            const keyMaterial = await crypto.subtle.importKey(
-                "raw",
-                new TextEncoder().encode(String(key)),
-                "PBKDF2",
-                false,
-                ["deriveKey"]
-            );
-            const ctrKey = await crypto.subtle.deriveKey(
-                { name: "PBKDF2", salt: salt, iterations: 100000, hash: "SHA-256" },
-                keyMaterial,
-                { name: "AES-CTR", length: 256 },
-                false,
-                ["decrypt"]
-            );
-            return new Uint8Array(
-                await crypto.subtle.decrypt(
-                    { name: "AES-CTR", counter: counter, length: 64 },
-                    ctrKey,
-                    ciphertext
-                )
-            );
         }
 
         function getEncryptedImageBytes() {
