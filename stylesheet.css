@@ -39,14 +39,14 @@ body {
 	color: #fff;
 }
 
-.teleport_list {
+.portal_menu {
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 8px;
 }
 
-.teleport_row {
-	display: flex;
-	gap: 8px;
-	align-items: center;
+.portal_text {
+	margin-top: 10px;
+	overflow-wrap: anywhere;
+	white-space: pre-line;
 }

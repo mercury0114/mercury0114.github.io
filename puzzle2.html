@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Page - puzzle2</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="encryption.js"></script>
 </head>
 <body>
     <nav id="menu" class="menu_bar"></nav>
@@ -18,87 +19,62 @@
         </div>
         <div class="question_window">
             <div class="question_box">
-                <p>Click a teleport button (ordered chronologically from earliest to latest) to teleport to Marius</p>
+                <p>Select a portal (ordered chronologically from earliest to latest) and click "Teleport" at the right moment to teleport to Marius</p>
             </div>
-            <div class="teleport_list">
-                <div class="teleport_row">
-                    <button type="button" id="teleport1">Teleport 1</button>
-                </div>
-                <div class="teleport_row">
-                    <button type="button" id="teleport2">Teleport 2</button>
-                </div>
-                <div class="teleport_row">
-                    <button type="button" id="teleport3">Teleport 3</button>
-                </div>
-                <div class="teleport_row">
-                    <button type="button" id="teleport4">Teleport 4</button>
-                </div>
-                <div class="teleport_row">
-                    <button type="button" id="teleport5">Teleport 5</button>
-                </div>
-                <div class="teleport_row">
-                    <button type="button" id="teleport6">Teleport 6</button>
-                </div>
-            </div>
-            <p id="teleportTime" style="margin-top: 10px;"></p>
-            <p id="teleportMessage"></p>
+            <div id="portalMenu" class="portal_menu"></div>
         </div>
-        <div id="teleportResult" class="question_window" style="display: none;"></div>
+        <div id="portalPanel" class="question_window" style="display: none;"></div>
     </main>
     <script>
-        const teleport5Text = `Marius is on the Zawirowania floor, lifted in a table pose, when suddenly he feels an additional weight on his chest. Before realizing what happened, he barely manages to lie back on the mat, almost breaking his wrists. Marius is breathing heavily and is completely soaked in sweat, when he suddenly smells something nice and familiar. Only then does he begin to realize: the ballerina Aleksandra has teleported! It has worked, and she is now lying on top of him. Before the moment disappears, Marius gives Aleksandra a big kiss and a strong hug, despite all the other students in the class suspiciously watching what happened. And then Aleksandra teleports again and disappears.
+        const portalTexts = {
+            1: null,
+            2: null,
+            3: null,
+            4: null,
+            5: "LI4sCjfcQIDjL4QrN6EnzeQl4/Tvq5PDr8eZ0JVJGFaMhGr1UjRIcAPaX5b/yOo05IGYoUTk3vIWNtbvCKUf7et05rjOhmD0vHEqQ93xapbp7I2HoFbyqawFYsO2Qh16QammCuYmfNIEL3Hgu3RZgaCS+/S4PBlHtZHdxvLXSsF7n2xXVDdo0AP4YcULHyehku2aXxrdtyyqMJ7ALXFvKJIip5Rg0V6lSS61WIlW5itPI8E9jbONxRYDdch9Q/igmovf8unzkbi9/KwXN6BfOQ1BuzdMtusVhJFQ+i3OdXNHpN29x8cN5874yVyV4JiIsPXoPbt/01+Wsd6b/6fF19O2Y7ZdzJThggLJ3E61igw8A5IXSgAM2FezMCyJ+rEpNmiruLWZrnsNp6gzVDEJaRKqTf0DCGGWEkp1tvCxcB1pkSdb68UZS0Y7OnLVq5Z6B5NKzhEL8l5S5lyUEnWexnN66x/X41geFs67f/jJsovmP7Eo7K+MVkbOcEa4K2LbmiOh9Q0qyDsKquWmif4bGMee703LudSmRrITxOa8usWYkWs2yWbaq3Xd/L4O7hu3L8kRK45MVhujgY+AoTWqgNvlyxQcoz1WJHjbyYQfSomeU4SXI2lhvxURxIo+bTa675D8CmabXquP/6cqs8HteOoyCcsXKJEnf5AFJW93U/W6ms1ha/XbtqA2F76abMdc4/Of+54i34GTrY5NIUMJo+Rjvd4fyy9f1RRqLNmCabHEpPHcQIBMle6pkWp98g0TWNpQwTAJPz+ELZqYC2Oi8H2wV4hWOUxPHIIdmT+J2l3kAV+FzU3y8Ifuyh4MEuiYLTE8jquKEbbRN0cYVfjK293mGMqO9scQkmKqCQHV98iugTi/nDeVQ6rPDBa8G5Bbf5Uba5Hq5h7/vh4d62aIE3Y9HprNKm5rrFU0TpuDQAi61imDo0o1LlaPvn1RglHXOp/WCGbkf9SsFmFTWZbgp43Lg8O47cHDQOLJc/EwPapxkt7YEc5Wtg/gvpt7oLsWbSlDebbjLip426RyFuZqapckatmoFuS3ICFZy9wn+q2KZo3H4G1tmovsARl+oXqQqFG4P9qdfxQbkGF7JfxZfy0R736d/5cU3trestpa8E6G3TeosTVrjcICRVP7+MsEhLj8WKSGZbIXGC024Dt+4ZJCc/j9+Z/Eiplw6ZPCYMsKe57r8g==",
+            6: null,
+        };
 
-    Marius will now have to explain to Elwira why her class was interrupted and what he is doing to Elwira's best student Aleksandra, but no worries, the kiss was worth any subsequent trouble.`;
+        const portalMenu = document.getElementById("portalMenu");
+        const portalPanel = document.getElementById("portalPanel");
 
-        const windows = [
-            { portal: 1, buttonId: "teleport1", time: "00:52", text: null },
-            { portal: 2, buttonId: "teleport2", time: "08:48", text: null },
-            { portal: 3, buttonId: "teleport3", time: "12:44", text: null },
-            { portal: 4, buttonId: "teleport4", time: "16:36", text: null },
-            { portal: 5, buttonId: "teleport5", time: "18:28", text: teleport5Text },
-            { portal: 6, buttonId: "teleport6", time: "20:12", text: null },
-        ];
+        function openPortal(portalNumber, encryptedBase64, clickedButton) {
+            portalMenu.querySelector(".active")?.classList.remove("active");
+            clickedButton.classList.add("active");
+            portalPanel.style.display = "block";
+            portalPanel.replaceChildren();
 
-        const teleportTime = document.getElementById("teleportTime");
-        const teleportMessage = document.getElementById("teleportMessage");
-        const teleportResult = document.getElementById("teleportResult");
-
-        function getCurrentTimeHHMM() {
-            const now = new Date();
-            const hh = String(now.getHours()).padStart(2, "0");
-            const mm = String(now.getMinutes()).padStart(2, "0");
-            return `${hh}:${mm}`;
-        }
-
-        function renderResultText(text) {
-            teleportResult.replaceChildren();
-            for (const paragraph of text.split("\n\n")) {
-                const p = document.createElement("p");
-                p.textContent = paragraph;
-                teleportResult.appendChild(p);
+            if (!encryptedBase64) {
+                portalPanel.textContent = `Portal ${portalNumber} doesn't work yet.`;
+                return;
             }
-            teleportResult.style.display = "block";
+
+            const encryptedBytes = Uint8Array.from(atob(encryptedBase64), char => char.charCodeAt(0));
+            const teleportButton = document.createElement("button");
+            teleportButton.type = "button";
+            teleportButton.textContent = "Teleport";
+
+            const teleportTime = document.createElement("p");
+            const portalText = document.createElement("div");
+            portalText.className = "portal_text";
+            portalText.textContent = new TextDecoder().decode(encryptedBytes.slice(32));
+
+            teleportButton.addEventListener("click", async function() {
+                const currentTime = new Date().toTimeString().slice(0, 5);
+                teleportTime.textContent = `Ola attempted to teleport through Portal ${portalNumber} at time: ${currentTime}`;
+                const decryptedBytes = await Encryption.decrypt(encryptedBytes, currentTime);
+                portalText.textContent = new TextDecoder().decode(decryptedBytes);
+            });
+
+            portalPanel.append(teleportButton, teleportTime, portalText);
         }
 
-        for (const win of windows) {
-            const button = document.getElementById(win.buttonId);
-            button.addEventListener("click", function() {
-                const currentTime = getCurrentTimeHHMM();
-                teleportTime.textContent = `Ola attempted to teleport through portal ${win.portal} at time: ${currentTime}`;
-
-                if (!win.text) {
-                    teleportMessage.textContent = `Portal ${win.portal} doesn't work yet.`;
-                    teleportResult.replaceChildren();
-                    teleportResult.style.display = "none";
-                } else if (currentTime !== win.time) {
-                    teleportMessage.textContent = "Not quite the right moment yet — Marius for a moment sensed the presence of a strong ballerina next to him, but the sensation quickly evaporated.";
-                    teleportResult.replaceChildren();
-                    teleportResult.style.display = "none";
-                } else {
-                    teleportMessage.textContent = "Teleportation successful!";
-                    renderResultText(win.text);
-                }
-            });
+        for (const [portalNumber, encryptedBase64] of Object.entries(portalTexts)) {
+            const portalButton = document.createElement("button");
+            portalButton.type = "button";
+            portalButton.textContent = `Portal ${portalNumber}`;
+            portalButton.addEventListener("click", () => openPortal(portalNumber, encryptedBase64, portalButton));
+            portalMenu.appendChild(portalButton);
         }
     </script>
 </body>
